@@ -3,6 +3,8 @@
         "Chatinfo",
         "Firestore",
         "Pannel",
-        "reduxjs"
+        "reduxjs",
+        "toastify",
+        "unsub"
     ]
 }
