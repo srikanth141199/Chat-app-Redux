@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { changeUser } from "../../redux/Reducers/chatReducer";
+import image from "../../assets/Untitled design.png"
 
 export default function Chats(){
 
@@ -17,6 +18,7 @@ export default function Chats(){
         const getChats = ()=>{
             const unsub = onSnapshot(doc(db, "userChats", userDetails.uid), (doc) => {
                 setChats(doc.data());
+                console.log("chat[1].userInfo.name : ", chats);
             });
 
             return ()=>{
@@ -25,7 +27,7 @@ export default function Chats(){
         }
 
         userDetails.uid && getChats();
-    }, [userDetails.uid])
+    }, [userDetails.uid, chats])
 
     const handledSelectChat = (selectedUser)=>{
         dispatch(changeUser({ userDetails, selectedUser }))
@@ -42,7 +44,7 @@ export default function Chats(){
                 key={chat[0]}
                 onClick={() => handledSelectChat(chat[1].userInfo)}
               >
-                <img src={chat[1].userInfo.photoURL} alt="user-chat" />
+                <img src={chat[1].userInfo.photoURL ? chat[1].userInfo.photoURL : image} alt="user-chat" />
                 <div className="userChatInfo">
                   <span>{chat[1].userInfo.name}</span>
                   <p>{chat[1].lastMessage?.text}</p>

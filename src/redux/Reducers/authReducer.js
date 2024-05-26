@@ -5,6 +5,12 @@ import {  doc, getDoc, setDoc } from "firebase/firestore";
 import { toast } from 'react-toastify';
 import { db } from "../../config/firebase";
 
+import image1 from "../../assets/Untitled design.png"
+import image2 from "../../assets/Untitled design (1).png"
+import image3 from "../../assets/Untitled design (2).png"
+import image4 from "../../assets/Untitled design (3).png"
+import image5 from "../../assets/Untitled design (4).png"
+
 const auth = getAuth();
 
 
@@ -14,6 +20,19 @@ const initialState = {
     userDetails : []
 }
 
+const images = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5
+];
+
+const getRandomImage = () => {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+};
+
 
 //to create new user details
 export const signUpThunk = createAsyncThunk("auth/signup", async ({ name,email, password})=>{
@@ -21,8 +40,11 @@ export const signUpThunk = createAsyncThunk("auth/signup", async ({ name,email, 
         const userDetails = await createUserWithEmailAndPassword(auth, email, password);
         const user = userDetails.user;
 
+        const photoURL = getRandomImage();
+
         await updateProfile(user, {
-            displayName : name
+            displayName : name,
+            photoURL: photoURL
         })
 
         // await addDoc(collection(db, 'user', user.uid), {
@@ -33,6 +55,7 @@ export const signUpThunk = createAsyncThunk("auth/signup", async ({ name,email, 
             uid: user.uid,
             name,
             email,
+            photoURL
           });
 
         //create empty user chats on firestore

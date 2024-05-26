@@ -6,18 +6,7 @@
     padding: 10px;
     justify-content: space-between;
     color: #FFFFFF;
-
-    /* Styling for the logo inside the navbar */
-    .logo {
-        font-size: 24px;
-        font-weight: 700;
-        padding: 10px;
-
-        /* Media query mixin for tablet size */
-        @include tablet {
-            display: none;
-        }
-    }
+   
 
     /* Styling for the user info inside the navbar */
     .user {
@@ -51,12 +40,25 @@
         button {
             background-color: #de0c41;
             color: #ddddf7;
-            font-size: 10px;
+            font-size: 15px;
             border: none;
             cursor: pointer;
-            position: absolute;
+            /* position: absolute; */
             bottom: 8px;
             right: 10px;
+            border-radius: 5px;
         }
+    }
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px;
+    width: 50px;
+
+    /* Media query mixin for tablet size */
+    @include tablet {
+        display: none;
     }
 }
