@@ -9,6 +9,7 @@ const SignUp = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    //const [img, setImg] = useState(null);
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -45,6 +46,18 @@ const SignUp = () => {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                     />
+                    {/* <input
+                        type="file"
+                        id="file"
+                        onChange={(e) => setImg(e.target.files[0])}
+                    />
+                    <label htmlFor="file">
+                        <img
+                        src="https://cdn-icons-png.flaticon.com/128/4675/4675250.png"
+                        alt="img-logo"
+                        />
+                        <span>Add Profile</span>
+                    </label> */}
                     <button className="signingbtn" onClick={handleSubmit}>
                         Sign Up
                     </button>

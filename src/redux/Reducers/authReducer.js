@@ -1,6 +1,6 @@
 import {  createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { addDoc, collection, doc, getDoc } from "firebase/firestore";
+import {  doc, getDoc, setDoc } from "firebase/firestore";
 
 import { toast } from 'react-toastify';
 import { db } from "../../config/firebase";
@@ -25,9 +25,22 @@ export const signUpThunk = createAsyncThunk("auth/signup", async ({ name,email, 
             displayName : name
         })
 
-        await addDoc(collection(db, 'user'), {
-            name, email
-        })
+        // await addDoc(collection(db, 'user', user.uid), {
+        //     name, email
+        // })
+
+        await setDoc(doc(db, "users", user.uid), {
+            uid: user.uid,
+            name,
+            email,
+          });
+
+        //create empty user chats on firestore
+        await setDoc(doc(db, "userChats", user.uid), {});
+        toast.success("Signup Successfully!...", {
+          position: "top-right",
+          theme: "colored",
+        });
 
         //console.log('User signed up successfully!');
         //console.log(user);
