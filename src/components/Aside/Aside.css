@@ -1,0 +1,44 @@
+.AsideContainer {
+    flex: 1;
+    background-color: #0db088;
+    position: relative;
+    
+
+    /* Styling for the user chat */
+    .userChat {
+      padding: 3px 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: white;
+      cursor: pointer;
+
+      /* Hover effect */
+      &:hover {
+        background-color: #351f1b;
+      }
+
+      /* Styling for the user image inside the user chat */
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      /* Styling for the user chat info */
+      .userChatInfo {
+        /* Styling for the name span */
+        span {
+          font-size: 18px;
+          font-weight: 500;
+        }
+        /* Styling for the last message paragraph */
+        p {
+          margin-top: 2px;
+          font-size: 14px;
+          color: lightgray;
+        }
+      }
+    }
+  }

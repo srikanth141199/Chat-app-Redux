@@ -1,0 +1,62 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #120101c2;
+    height: 50px;
+    padding: 10px;
+    justify-content: space-between;
+    color: #FFFFFF;
+
+    /* Styling for the logo inside the navbar */
+    .logo {
+        font-size: 24px;
+        font-weight: 700;
+        padding: 10px;
+
+        /* Media query mixin for tablet size */
+        @include tablet {
+            display: none;
+        }
+    }
+
+    /* Styling for the user info inside the navbar */
+    .user {
+        display: flex;
+        gap: 10px;
+        padding: 0 10px;
+
+        /* Styling for the anchor tag inside the user info */
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Styling for the user image */
+        img {
+            background-color: #ddddf7;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Styling for the user name */
+        span.userName {
+            font-weight: 600;
+            position: relative;
+            top: 8px;
+        }
+
+        /* Styling for the button inside the user info */
+        button {
+            background-color: #de0c41;
+            color: #ddddf7;
+            font-size: 10px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+        }
+    }
+}

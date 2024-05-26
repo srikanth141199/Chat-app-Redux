@@ -57,10 +57,12 @@ export const signInThunk = createAsyncThunk("auth/signIn", async ({ email, passw
         const user = userCredentials.user;
 
         // Fetching user details from Firestore
-        const userDoc = await getDoc(doc(db, 'user', user.uid));
+        const userDoc = await getDoc(doc(db, 'users', user.uid));
         const userDetails = userDoc.data();
 
         dispatch(userLoggedIn(true));
+        console.log("userDetails in reducer : ", userDetails);
+        console.log("user in reducer : ", user);
         dispatch(setUserDetails(userDetails))//updating user details to use in product Reducer
 
         toast.success("SignIn is Successful");
