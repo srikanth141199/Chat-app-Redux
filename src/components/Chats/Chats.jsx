@@ -27,8 +27,8 @@ export default function Chats(){
         userDetails.uid && getChats();
     }, [userDetails.uid])
 
-    const handledSelectChat = (user)=>{
-        dispatch(changeUser(user))
+    const handledSelectChat = (selectedUser)=>{
+        dispatch(changeUser({ userDetails, selectedUser }))
     }
 
     return (

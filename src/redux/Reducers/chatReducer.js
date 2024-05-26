@@ -14,8 +14,9 @@ const chatSlice = createSlice({
             state.user = {}
         },
         changeUser : (state, action) =>{
-            state.user = action.payload
-            state.chatId = state.userDetails.uid > action.payload.uid  ? state.userDetails.uid + action.payload.uid : action.payload.uid + state.userDetails.uid;
+            const { userDetails, selectedUser } = action.payload;
+            state.user = selectedUser
+            state.chatId = userDetails.uid > selectedUser.uid  ? userDetails.uid + selectedUser.uid : selectedUser.uid + userDetails.uid;
         }
     }
 })
