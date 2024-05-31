@@ -1,3 +1,9 @@
+#TestUser Details
+
+1. sri@gmail.com - Password : Sri@1234
+2. surya@gmail.com - Password : Surya@1234
+
+
 #Firebase Authentication with React and Redux
 This project is a chat application built using React, Redux, Firebase, and React Router. It demonstrates user authentication (sign-up and sign-in) with Firebase Authentication, and user data storage in Firestore. It also showcases basic chat functionality where users can search for and initiate chats with other users.
 
@@ -15,6 +21,7 @@ Sign-In
 Search Users and Start Chat
 Contributing
 License
+
 
 
 #Features
